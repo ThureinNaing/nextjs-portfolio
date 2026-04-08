@@ -4,96 +4,109 @@ import React, { useEffect, useState } from "react";
 import { Copy, Terminal, Check } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { motion } from "framer-motion";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { AuroraTextEffect } from "./aurora-text-effect";
 
 type TerminalCardProps = {
-  command: string;
-  language?: string;
-  className?: string;
+	command: string;
+	className?: string;
 };
 
-const TerminalCard: React.FC<TerminalCardProps> = ({ command, language = "tsx", className }) => {
-  const [copied, setCopied] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
+const TerminalCard: React.FC<TerminalCardProps> = ({ command, className }) => {
+	const [copied, setCopied] = useState(false);
+	const [displayedText, setDisplayedText] = useState("");
+	const [index, setIndex] = useState(0);
 
-  // Typing animation logic
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
+	// Typing animation logic
+	useEffect(() => {
+		let timeout: NodeJS.Timeout;
 
-    if (index < command.length) {
-      timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev + command.charAt(index));
-        setIndex((prev) => prev + 1);
-      }, 40); // typing speed
-    } else {
-      setIsComplete(true);
-      timeout = setTimeout(() => {
-        setDisplayedText("");
-        setIndex(0);
-        setIsComplete(false);
-      }, 2000); // restart delay
-    }
+		if (index < command.length) {
+			timeout = setTimeout(() => {
+				setDisplayedText((prev) => prev + command.charAt(index));
+				setIndex((prev) => prev + 1);
+			}, 40); // typing speed
+		} else {
+			// အဆုံးထိရောက်ရင် ၃ စက္ကန့်နားပြီးမှ ပြန်စမယ်
+			timeout = setTimeout(() => {
+				setDisplayedText("");
+				setIndex(0);
+			}, 3000);
+		}
 
-    return () => clearTimeout(timeout);
-  }, [index, command]);
+		return () => clearTimeout(timeout);
+	}, [index, command]);
 
-  // Copy handler
-  const handleCopy = () => {
-    navigator.clipboard.writeText(command);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
+	const handleCopy = () => {
+		navigator.clipboard.writeText(command);
+		setCopied(true);
+		setTimeout(() => setCopied(false), 1500);
+	};
 
-  return (
-    <div
-      className={cn(
-        "border rounded-lg backdrop-blur-md min-w-[300px] max-w-full",
-        "bg-white/70 border-gray-300 text-black",
-        "dark:bg-white/10 dark:border-gray-400/30 dark:text-white",
-        className
-      )}
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between px-3 py-2 bg-gray-100 dark:bg-[#202425] rounded-t-lg text-sm font-semibold text-gray-700 dark:text-gray-400">
-        <div className="flex items-center gap-2">
-          <Terminal className="w-4 h-4 text-blue-500" />
-          Terminal
-        </div>
-        <button
-          className="p-1 border rounded transition hover:border-gray-600 dark:hover:border-white text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
-          onClick={handleCopy}
-          aria-label="Copy to clipboard"
-        >
-          {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-        </button>
-      </div>
+	return (
+		<div
+			className={cn(
+				"border rounded-xl backdrop-blur-md min-w-[300px] max-w-full overflow-hidden shadow-2xl",
+				"bg-zinc-900/90 border-zinc-800",
+				className,
+			)}
+		>
+			{/* Terminal Header */}
+			<div className="flex items-center justify-between px-4 py-3 bg-zinc-800/40 border-b border-zinc-700/30">
+				<div className="flex items-center gap-3">
+					<div className="flex gap-1.5">
+						<div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+						<div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+						<div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+					</div>
+					<div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">
+						<Terminal className="w-3.5 h-3.5" />
+						Terminal — Aurora
+					</div>
+				</div>
+				<button
+					className="p-1.5 hover:bg-zinc-700/50 rounded-md transition-all text-zinc-400 hover:text-white"
+					onClick={handleCopy}
+				>
+					{copied ? (
+						<Check className="w-3.5 h-3.5 text-green-500" />
+					) : (
+						<Copy className="w-3.5 h-3.5" />
+					)}
+				</button>
+			</div>
 
-      {/* Content with Syntax Highlighting */}
-      <div className="rounded-b-lg text-sm font-mono p-3 bg-black text-white dark:bg-black max-h-[300px] overflow-auto">
-        {isComplete ? (
-          <SyntaxHighlighter
-            language={language}
-            style={oneDark}
-            customStyle={{ background: "transparent", margin: 0, padding: 0 }}
-          >
-            {command}
-          </SyntaxHighlighter>
-        ) : (
-          <motion.pre className="whitespace-pre-wrap">
-            {displayedText}
-            <motion.span
-              className="inline-block w-1 bg-white ml-1"
-              animate={{ opacity: [0, 1] }}
-              transition={{ duration: 0.6, repeat: Infinity }}
-            />
-          </motion.pre>
-        )}
-      </div>
-    </div>
-  );
+			{/* Terminal Content Area */}
+			<div className="relative p-6 bg-black min-h-[160px] max-h-[400px] overflow-auto select-none">
+				<div className="inline-block">
+					{/* ✨ Aurora Text Effect - Typing စာသားကို တိုက်ရိုက်ပြမည် */}
+					<div className="inline-block align-middle">
+						<AuroraTextEffect
+							text={displayedText}
+							className="text-lg md:text-xl font-bold font-mono tracking-tight"
+							colors={{
+								first: "bg-cyan-400",
+								second: "bg-purple-500",
+								third: "bg-blue-400",
+								fourth: "bg-emerald-400",
+							}}
+						/>
+					</div>
+
+					{/* ⚡ Animated Cursor - Aurora စာသားရဲ့ အဆုံးမှာ အမြဲကပ်နေမည် */}
+					<motion.span
+						animate={{ opacity: [1, 1, 0, 0] }}
+						transition={{
+							duration: 0.8,
+							repeat: Infinity,
+							ease: "linear",
+							times: [0, 0.5, 0.5, 1],
+						}}
+						className="inline-block w-[10px] h-[22px] bg-white ml-2 align-middle shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+					/>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default TerminalCard;
