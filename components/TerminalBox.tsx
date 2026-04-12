@@ -1,115 +1,252 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Copy, Terminal, Check } from "lucide-react";
-import { cn } from "../lib/utils";
-import { motion } from "framer-motion";
-import { AuroraTextEffect } from "./lightswind/aurora-text-effect";
+import { motion, useReducedMotion } from "framer-motion";
+import { Plus } from "lucide-react";
+import { useEffect, useState } from "react";
 
-type TerminalBoxProps = {
-	command: string;
-	className?: string;
-};
+const codeLines = [
+	{
+		number: 1,
+		content: "import { FullStackDeveloper } from '@/portfolio';",
+		color: "text-purple-400",
+	},
+	{ number: 2, content: "", color: "" },
+	{
+		number: 3,
+		content: "// Building scalable web products",
+		color: "text-slate-500",
+	},
+	{
+		number: 4,
+		content: 'developer.build("Responsive frontend with Next.js");',
+		color: "text-blue-400",
+	},
+	{
+		number: 5,
+		content: 'developer.create("Robust APIs and backend systems");',
+		color: "text-emerald-400",
+	},
+	{
+		number: 6,
+		content: 'developer.deploy("Secure, production-ready applications");',
+		color: "text-cyan-400",
+	},
+];
 
-const TerminalBox: React.FC<TerminalBoxProps> = ({ command, className }) => {
-	const [copied, setCopied] = useState(false);
-	const [displayedText, setDisplayedText] = useState("");
-	const [index, setIndex] = useState(0);
+const EMPTY_LINES = codeLines.map(() => "");
+const FULL_LINES = codeLines.map((line) => line.content);
+const TYPING_START_DELAY = 350;
+const CHARACTER_DELAY = 45;
+const LINE_DELAY = 180;
+const LOOP_DELAY = 3000;
 
-	// Typing animation logic
+export default function TerminalBox() {
+	const prefersReducedMotion = useReducedMotion();
+	const [animationState, setAnimationState] = useState(() => ({
+		activeLine: 0,
+		typedLines: EMPTY_LINES,
+	}));
+	const displayedLines = prefersReducedMotion
+		? FULL_LINES
+		: animationState.typedLines;
+	const activeCursorLine = prefersReducedMotion
+		? codeLines.length - 1
+		: animationState.activeLine;
+
 	useEffect(() => {
-		let timeout: NodeJS.Timeout;
-
-		if (index < command.length) {
-			timeout = setTimeout(() => {
-				setDisplayedText((prev) => prev + command.charAt(index));
-				setIndex((prev) => prev + 1);
-			}, 50); // Typing speed ကို နည်းနည်းတင်လိုက်ပါတယ် (ပို smooth ဖြစ်အောင်)
-		} else {
-			// ပြီးသွားရင် ၃ စက္ကန့် စောင့်ပြီး ပြန်စမယ်
-			timeout = setTimeout(() => {
-				setDisplayedText("");
-				setIndex(0);
-			}, 3000);
+		if (prefersReducedMotion) {
+			return;
 		}
 
-		return () => clearTimeout(timeout);
-	}, [index, command]);
+		const timerIds: number[] = [];
+		const schedule = (callback: () => void, delay: number) => {
+			timerIds.push(window.setTimeout(callback, delay));
+		};
 
-	const handleCopy = () => {
-		navigator.clipboard.writeText(command);
-		setCopied(true);
-		setTimeout(() => setCopied(false), 1500);
-	};
+		const startTypingCycle = () => {
+			let currentLine = 0;
+			let currentCharacter = 0;
+
+			setAnimationState({
+				activeLine: 0,
+				typedLines: EMPTY_LINES,
+			});
+
+			const typeNextCharacter = () => {
+				const line = codeLines[currentLine];
+
+				if (!line) {
+					schedule(startTypingCycle, LOOP_DELAY);
+					return;
+				}
+
+				if (line.content.length === 0) {
+					const lineIndex = currentLine;
+
+					setAnimationState((previousState) => ({
+						...previousState,
+						activeLine: lineIndex,
+					}));
+					currentLine += 1;
+					currentCharacter = 0;
+					schedule(typeNextCharacter, LINE_DELAY);
+					return;
+				}
+
+				const lineIndex = currentLine;
+				const nextCharacterCount = currentCharacter + 1;
+
+				setAnimationState((previousState) => {
+					const nextLines = [...previousState.typedLines];
+					nextLines[lineIndex] = line.content.slice(
+						0,
+						nextCharacterCount,
+					);
+
+					return {
+						activeLine: lineIndex,
+						typedLines: nextLines,
+					};
+				});
+
+				if (nextCharacterCount < line.content.length) {
+					currentCharacter += 1;
+					schedule(typeNextCharacter, CHARACTER_DELAY);
+					return;
+				}
+
+				currentLine += 1;
+				currentCharacter = 0;
+
+				if (currentLine < codeLines.length) {
+					schedule(typeNextCharacter, LINE_DELAY);
+					return;
+				}
+
+				schedule(startTypingCycle, LOOP_DELAY);
+			};
+
+			schedule(typeNextCharacter, TYPING_START_DELAY);
+		};
+
+		schedule(startTypingCycle, 0);
+
+		return () => {
+			timerIds.forEach((timerId) => window.clearTimeout(timerId));
+		};
+	}, [prefersReducedMotion]);
 
 	return (
-		<div
-			className={cn(
-				"border rounded-xl backdrop-blur-md min-w-[320px] max-w-full overflow-hidden shadow-2xl",
-				"bg-zinc-900/90 border-zinc-800",
-				className,
-			)}
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5 }}
+			className="relative group max-w-2xl w-full"
 		>
-			{/* Terminal Header */}
-			<div className="flex items-center justify-between px-4 py-3 bg-zinc-800/40 border-b border-zinc-700/30">
-				<div className="flex items-center gap-3">
-					<div className="flex gap-1.5">
+			{/* Background Glow Effect */}
+			<div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+
+			<div className="relative bg-[#0d1117] rounded-lg border border-slate-800 overflow-hidden shadow-2xl">
+				{/* Header / Tab Bar */}
+				<div className="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-slate-800">
+					<div className="flex gap-2">
 						<div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
 						<div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
 						<div className="w-3 h-3 rounded-full bg-[#27c93f]" />
 					</div>
-					<div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">
-						<Terminal className="w-3.5 h-3.5" />
-						Terminal — Session
-					</div>
-				</div>
-				<button
-					className="p-1.5 hover:bg-zinc-700/50 rounded-md transition-all text-zinc-400 hover:text-white"
-					onClick={handleCopy}
-				>
-					{copied ? (
-						<Check className="w-3.5 h-3.5 text-green-500" />
-					) : (
-						<Copy className="w-3.5 h-3.5" />
-					)}
-				</button>
-			</div>
 
-			{/* Terminal Content Area */}
-			<div className="relative p-6 bg-black min-h-[160px] max-h-[450px] overflow-auto">
-				{/* 💡 whitespace-pre-wrap က \n (New Line) တွေကို အလုပ်လုပ်စေပါတယ် */}
-				<div className="relative flex flex-wrap items-start w-full whitespace-pre-wrap wrap-break-word leading-relaxed">
-					<div className="inline">
-						<AuroraTextEffect
-							text={displayedText}
-							// ✅ whitespace-pre-wrap ကို ဒီနေရာမှာလည်း ထည့်ထားဖို့ လိုပါတယ်
-							className="text-sm md:text-base font-mono font-bold tracking-tight whitespace-pre-wrap leading-7"
-							fontSize="1rem"
-							colors={{
-								first: "bg-cyan-400",
-								second: "bg-purple-500",
-								third: "bg-blue-400",
-								fourth: "bg-emerald-400",
-							}}
-							blurAmount="blur-lg"
-						/>
+					<div className="flex items-center gap-2 px-3 py-1 bg-[#0d1117] rounded-md border border-slate-800">
+						<span className="text-[10px] text-blue-400 font-mono">
+							..
+						</span>
+						<span className="text-[11px] text-slate-300 font-mono">
+							career_path.ts
+						</span>
 					</div>
 
-					{/* ⚡ Blinking Cursor - စာသားနဲ့ အမြင့်ညီအောင် h-[1.2em] သုံးထားပါတယ် */}
-					<motion.span
-						animate={{ opacity: [1, 1, 0, 0] }}
-						transition={{
-							duration: 0.8,
-							repeat: Infinity,
-							ease: "linear",
-							times: [0, 0.5, 0.5, 1],
-						}}
-						className="inline-block w-[10px] h-[1.2em] bg-white ml-1 align-middle shadow-[0_0_15px_rgba(255,255,255,0.9)]"
-					/>
+					<div className="p-1 rounded bg-blue-500/10 border border-blue-500/20">
+						<Plus className="w-3 h-3 text-blue-400" />
+					</div>
+				</div>
+
+				{/* Code Editor Area */}
+				<div className="p-6 font-mono text-sm sm:text-base leading-relaxed overflow-x-auto">
+					{codeLines.map((line, index) => (
+						<div key={line.number} className="flex gap-4">
+							<span className="text-slate-600 w-5 text-right select-none">
+								{line.number}
+							</span>
+							<span
+								className={`${line.color} inline-flex items-center`}
+							>
+								<span>{displayedLines[index]}</span>
+								{activeCursorLine === index ? (
+									<motion.span
+										animate={
+											prefersReducedMotion
+												? { opacity: 1 }
+												: { opacity: [1, 0] }
+										}
+										transition={
+											prefersReducedMotion
+												? undefined
+												: {
+														repeat: Infinity,
+														duration: 0.8,
+													}
+										}
+										className="inline-block w-2 h-5 bg-blue-400 ml-0.5 align-middle"
+									/>
+								) : null}
+							</span>
+						</div>
+					))}
+				</div>
+
+				{/* Bottom Status Bar / Terminal Output */}
+				<div className="border-t border-slate-800">
+					<div className="flex gap-6 px-4 py-1 text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-slate-800/50">
+						<span className="text-slate-300 border-b-2 border-blue-500 pb-1">
+							Terminal
+						</span>
+						<span>Output</span>
+						<span>Problems</span>
+					</div>
+
+					<div className="p-4 bg-black/20">
+						<div className="flex items-center gap-2 text-xs text-emerald-400 mb-2">
+							<span className="text-slate-500">→</span>
+							<span className="text-cyan-400">
+								~/my-portfolio
+							</span>
+							<span className="text-slate-500">git:(</span>
+							<span className="text-pink-500">main</span>
+							<span className="text-slate-500">) ✗</span>
+						</div>
+						<p className="text-xs text-amber-200">
+							<span className="font-bold">STATUS:</span>{" "}
+							Full-stack systems online.
+							<br />
+							<span className="text-slate-400">
+								Next.js, TypeScript, APIs, databases, and
+								deployment workflows.
+							</span>
+						</p>
+					</div>
+				</div>
+
+				{/* Bottom Metadata */}
+				<div className="flex justify-between items-center px-4 py-1 bg-[#161b22] text-[10px] text-slate-500">
+					<div className="flex items-center gap-2">
+						<div className="w-2 h-2 rounded-full bg-emerald-500" />
+						<span>AI ASSISTANT ONLINE</span>
+					</div>
+					<div className="flex gap-3">
+						<span>TypeScript</span>
+						<span>Prettier</span>
+					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
-};
-
-export default TerminalBox;
+}
