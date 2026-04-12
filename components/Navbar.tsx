@@ -10,7 +10,7 @@ const Navbar = () => {
 	// 	{ name: "Skills", href: "#skills" },
 	// ];
 	return (
-		<header className="flex justify-between items-center px-8  text-white`">
+		<header className="flex justify-between items-center md:px-8  text-white`">
 			<h1 className="text-xl font-semibold text-mauve-400">
 				Thurein Naing
 			</h1>
