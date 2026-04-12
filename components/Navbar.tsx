@@ -10,21 +10,23 @@ const Navbar = () => {
 	// 	{ name: "Skills", href: "#skills" },
 	// ];
 	return (
-		<header className="flex justify-between items-center  bg-gray-800 text-white`">
+		<header className="flex justify-between items-center px-8  text-white`">
 			<h1 className="text-xl font-semibold text-mauve-400">
 				Thurein Naing
 			</h1>
-			<SparkleNavbar
-				items={[
-					"Home",
-					"About",
-					"Projects",
-					"Experience",
-					"Skills",
-					"Contact",
-				]}
-				color="#1E90FF"
-			/>
+			<nav className="hidden md:block">
+				<SparkleNavbar
+					items={[
+						"Home",
+						"About",
+						"Projects",
+						"Experience",
+						"Skills",
+						"Contact",
+					]}
+					color="#1E90FF"
+				/>
+			</nav>
 			<Link
 				href="#contact"
 				className="bg-white text-black px-3 py-1 rounded"
