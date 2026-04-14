@@ -30,11 +30,11 @@ const ShowCaseSectionn = () => {
 								<Code2Icon size={20} />
 								TECH STACK
 							</div>
-							<div className="flex items-center gap-2 flex-wrap space-y-2">
+							<div className="flex items-center gap-2 flex-wrap gap-y-2">
 								{project.technologies.map((tech, idx) => (
 									<span
 										key={idx}
-										className="rounded-xl border border-blue-300 px-4 py-1 text-xs text-blue-300 font-bold mx-1  "
+										className="rounded-xl border border-blue-300 px-3 py-1 text-xs text-blue-300 font-bold mx-1 "
 									>
 										{tech}
 									</span>
