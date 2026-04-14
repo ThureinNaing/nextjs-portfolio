@@ -237,7 +237,13 @@ export const ScrollTimeline = ({
 			)}
 		>
 			<div className="text-center py-16 px-4">
-				<h2 className="text-3xl md:text-5xl font-bold mb-4">{title}</h2>
+				<h2
+					className="text-3xl md:text-5xl font-bold mb-4 tracking-tight 
+               bg-[radial-gradient(circle,rgba(168,85,247,0.8)_0%,rgba(99,102,241,0.5)_40%,rgba(34,211,238,0.2)_100%)] 
+               bg-clip-text text-transparent"
+				>
+					{title}
+				</h2>
 				<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
 					{subtitle}
 				</p>
@@ -397,33 +403,37 @@ export const ScrollTimeline = ({
 												{dateFormat === "badge" ? (
 													<div className="flex items-center mb-2">
 														{event.icon || (
-															<Calendar className="h-4 w-4 mr-2 text-primary" />
+															<Calendar className="h-4 w-4 mr-2 text-primary text-gray-400" />
 														)}
 														<span
 															className={cn(
-																"text-sm font-bold",
+																"text-sm font-bold text-gray-400",
 																event.color
 																	? `text-${event.color}`
-																	: "text-primary",
+																	: "text-gray-400",
 															)}
 														>
 															{event.year}
 														</span>
 													</div>
 												) : (
-													<p className="text-lg font-bold text-primary mb-2">
+													<p className="text-lg font-bold  mb-2 text-gray-400">
 														{event.year}
 													</p>
 												)}
-												<h3 className="text-xl font-bold mb-1">
+												<h3
+													className="text-xl font-extrabold mb-1 tracking-tight 
+               bg-[radial-gradient(circle_at_left,#a855f7_0%,#6366f1_50%,#22d3ee_100%)] 
+               bg-clip-text text-transparent filter drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+												>
 													{event.title}
 												</h3>
 												{event.subtitle && (
-													<p className="text-muted-foreground font-medium mb-2">
+													<p className="text-muted-foreground   text-slate-100 font-semibold mb-2 leading-tight">
 														{event.subtitle}
 													</p>
 												)}
-												<p className="text-muted-foreground">
+												<p className="text-slate-400 text-md leading-relaxed font-medium">
 													{event.description}
 												</p>
 											</CardContent>
