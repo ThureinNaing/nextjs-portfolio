@@ -18,7 +18,7 @@ export default function AboutMe() {
 							className="relative z-10 w-full min-w-87.5 aspect-square rounded-[3rem] overflow-hidden bg-muted"
 						>
 							<Image
-								src="/thurein.jpeg"
+								src="/profile.png"
 								alt="Founding Partner"
 								fill
 								priority

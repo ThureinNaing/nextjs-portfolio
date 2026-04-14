@@ -15,6 +15,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={` h-full antialiased`}>
+			<head>
+				<link
+					rel="stylesheet"
+					href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+				/>
+			</head>
 			<body className="min-h-full flex flex-col md:mx-4 p-4 ">
 				<Navbar />
 				{children}
