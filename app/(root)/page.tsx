@@ -1,3 +1,4 @@
+import { ExperienceSection } from "@/components/ExperienceSection";
 import FeatureCard from "@/components/FeatureCard";
 import HeroSection from "@/components/HeroSection";
 
@@ -7,6 +8,7 @@ export default function Home() {
 			<h1 className="text-sky-600">Portfoilo</h1>
 			<HeroSection />
 			<FeatureCard />
+			<ExperienceSection />
 		</div>
 	);
 }

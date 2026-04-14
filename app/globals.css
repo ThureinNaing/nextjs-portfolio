@@ -24,3 +24,21 @@ body {
 	color: var(--foreground);
 	font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom Styles for ScrollTimeline */
+.custom-experience-timeline [class*="card"] {
+	background-color: #0d1117 !important; /* အစ်ကိုလိုချင်တဲ့ Background အရောင် */
+	border-color: #1f2937 !important; /* Border အရောင် */
+	color: #ffffff !important; /* စာသားအရောင် */
+}
+
+/* Timeline line နဲ့ Dot အရောင်ကို ပြောင်းချင်ရင် */
+.custom-experience-timeline [class*="line"],
+.custom-experience-timeline [class*="dot"] {
+	background-color: #3b82f6 !important; /* Blue accent */
+}
+
+/* Description စာသားလေးတွေကို မီးခိုးရောင် ထားချင်ရင် */
+.custom-experience-timeline [class*="description"] {
+	color: #94a3b8 !important;
+}

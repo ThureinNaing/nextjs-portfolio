@@ -144,7 +144,7 @@ export default function TerminalBox() {
 			className="relative group max-w-2xl w-full"
 		>
 			{/* Background Glow Effect */}
-			<div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+			<div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
 
 			<div className="relative bg-[#0d1117] rounded-lg border border-slate-800 overflow-hidden shadow-2xl">
 				{/* Header / Tab Bar */}
