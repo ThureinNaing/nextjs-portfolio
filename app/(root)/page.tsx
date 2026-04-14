@@ -2,6 +2,7 @@ import AboutMe from "@/components/AboutMe";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import FeatureCard from "@/components/FeatureCard";
 import HeroSection from "@/components/HeroSection";
+import ShowCaseSectionn from "@/components/ShowCaseSectionn";
 import TechStack from "@/components/TechStack";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 			<ExperienceSection />
 			<AboutMe />
 			<TechStack />
+			<ShowCaseSectionn />
 		</div>
 	);
 }

@@ -2,16 +2,9 @@ import Link from "next/link";
 import SparkleNavbar from "./lightswind/sparkle-navbar";
 
 const Navbar = () => {
-	// const navLinks = [
-	// 	{ name: "Home", href: "#home" },
-	// 	{ name: "About", href: "#about" },
-	// 	{ name: "Projects", href: "#projects" },
-	// 	{ name: "Experience", href: "#experience" },
-	// 	{ name: "Skills", href: "#skills" },
-	// ];
 	return (
 		<header className="flex justify-between items-center md:px-8  text-white`">
-			<h1 className="text-xl font-semibold text-mauve-400">
+			<h1 className="text-xl font-semibold text-mauve-400 italic">
 				Thurein Naing
 			</h1>
 			<nav className="hidden md:block">
@@ -29,7 +22,7 @@ const Navbar = () => {
 			</nav>
 			<Link
 				href="#contact"
-				className="bg-white text-black px-3 py-1 rounded"
+				className="bg-white text-black px-3 py-1 rounded italic cursor-pointer"
 			>
 				Contact me
 			</Link>

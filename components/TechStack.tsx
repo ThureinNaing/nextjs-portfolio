@@ -51,7 +51,7 @@ const TechStack = () => {
 		},
 	];
 	return (
-		<section className="space-y-10 min-h-screen py-16">
+		<section className="space-y-10 mt-20">
 			{/* title */}
 			<div className="text-center space-y-5">
 				<h5 className="w-fit mx-auto my-6 px-6 py-3 rounded-[3rem] flex items-center gap-2 bg-slate-50 dark:bg-white/3 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-xl border-none text-sm font-medium">
@@ -66,19 +66,19 @@ const TechStack = () => {
 				</ScrollReveal>
 			</div>
 			{/* tech stack card */}
-			<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+			<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
 				{TechStacks.map((tech) => (
 					<motion.div
 						key={tech.name}
 						initial={{ opacity: 0, x: -20 }}
 						whileInView={{ opacity: 1, x: 0 }}
-						className="group cursor-pointer"
+						className="group cursor-pointer md:h-70"
 					>
 						<Card className="w-full h-full rounded-[3rem] bg-slate-50 dark:bg-white/3 border border-slate-200 dark:border-white/10 backdrop-blur-xl p-8 flex flex-col items-center text-center justify-center overflow-hidden relative shadow-lg transition-all group-hover:border-emerald-500/30 border-none">
 							<div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 dark:opacity-100" />
 							{tech.icon}
 
-							<h3 className="font-black text-slate-900 dark:text-white uppercase text-xs tracking-widest">
+							<h3 className=" text-slate-900 dark:text-white uppercase text-xs tracking-widest">
 								{tech.name}
 							</h3>
 						</Card>

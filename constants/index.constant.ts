@@ -24,4 +24,25 @@ const abilities = [
 	},
 ];
 
-export { abilities };
+const Projects = [
+	{
+		title: "Attendance Management System",
+		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		img: "/adms.png",
+		technologies: ["NextJS", "PostgreSql", "Shadcn UI", "Prisma"],
+	},
+	{
+		title: "SaaS Project",
+		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		img: "/saas.png",
+		technologies: ["NextJS", "Supabase", "Tailwind CSS"],
+	},
+	{
+		title: "Library Management System",
+		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		img: "/library.png",
+		technologies: ["React", "Firebase", "Tailwind CSS"],
+	},
+];
+
+export { abilities, Projects };
