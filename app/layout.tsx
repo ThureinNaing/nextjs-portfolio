@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/Toaster";
+import Footer from "@/components/Footer";
 
 const siteUrl =
 	process.env.NEXT_PUBLIC_SITE_URL ?? "https://thurein-naing.vercel.app";
@@ -86,6 +87,7 @@ export default function RootLayout({
 				<Toaster />
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
