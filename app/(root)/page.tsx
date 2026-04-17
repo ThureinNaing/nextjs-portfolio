@@ -2,7 +2,7 @@ import AboutMe from "@/components/AboutMe";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import FeatureCard from "@/components/FeatureCard";
 import HeroSection from "@/components/HeroSection";
-import ShowCaseSectionn from "@/components/ShowCaseSection";
+import ShowCaseSection from "@/components/ShowCaseSection";
 import TechStack from "@/components/TechStack";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
 			<HeroSection />
 			<FeatureCard />
 			<ExperienceSection />
-			<ShowCaseSectionn />
+			<ShowCaseSection />
 			<TechStack />
 			<AboutMe />
 		</div>

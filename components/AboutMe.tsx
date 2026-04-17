@@ -68,10 +68,10 @@ export default function AboutMe() {
 							<div className="absolute bottom-8 left-8 right-8  flex justify-between items-end gap-3">
 								<div>
 									{" "}
-									<p className="text-white/60 text-[10px] font-black uppercase tracking-widest mb-1">
+									<p className="text-white/60 text-shadow-mauve-900 md:text-[10px] font-black uppercase tracking-widest mb-1">
 										Full Stack Developer
 									</p>
-									<h3 className="text-white text-2xl font-black tracking-tight">
+									<h3 className="text-white text-md md:text-2xl font-black tracking-tight">
 										Thurein Naing
 									</h3>
 								</div>
