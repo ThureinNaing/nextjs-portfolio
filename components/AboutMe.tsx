@@ -6,8 +6,9 @@ import Image from "next/image";
 export default function AboutMe() {
 	const highlightClass =
 		"text-indigo-400 font-bold mx-1 hover:text-indigo-300 transition-colors cursor-default";
+
 	return (
-		<section className="bg-background">
+		<section id="about" className="bg-background mt-20 scroll-mt-37.5">
 			<div className="container px-4 mx-auto">
 				<div className="flex flex-col lg:flex-row items-center gap-20">
 					{/* Visual Section */}
@@ -19,12 +20,11 @@ export default function AboutMe() {
 						>
 							<Image
 								src="/profile.png"
-								alt="Founding Partner"
+								alt="Thurein Naing"
 								fill
 								priority
 								className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
 							/>
-							{/* Overlay Gradient */}
 							<div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
 
 							<div className="absolute bottom-8 left-8">
@@ -37,7 +37,6 @@ export default function AboutMe() {
 							</div>
 						</motion.div>
 
-						{/* Decorative background blurs */}
 						<div className="absolute -top-12 -left-12 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10" />
 						<div className="absolute -bottom-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10" />
 					</div>
@@ -49,16 +48,16 @@ export default function AboutMe() {
 							whileInView={{ opacity: 1, x: 0 }}
 						>
 							<button className="text-primary font-black uppercase tracking-[0.2em] text-[10px] mb-6 border-transparent bg-primary/5 px-4 py-1.5">
-								Technical Leadership
+								Full Stack Development
 							</button>
 						</motion.div>
+
 						<h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter leading-none">
-							Visionary{" "}
-							<span className="text-primary">Leadership.</span>{" "}
+							Modern <span className="text-primary">Stack.</span>{" "}
 							<br />
-							Proven{" "}
+							Effective{" "}
 							<span className="text-muted-foreground italic">
-								Results.
+								Solutions.
 							</span>
 						</h2>
 
@@ -68,45 +67,44 @@ export default function AboutMe() {
 								<span className={highlightClass}>
 									Thurein Naing
 								</span>
-								. I&apos;m a{" "}
+								. I am a{" "}
 								<span className={highlightClass}>
-									{/* Software Engineer & CEIT student */}
-									Computering Engineering and Information
+									Computing Engineering and Information
 									Technology student
 								</span>
-								focused on building high-performance
-								applications. As{" "}
-								<span className="font-semibold underline decoration-purple-500/300 underline-offset-4">
-									Project Tech Lead
-								</span>
-								, I successfully delivered a university-level
-								Attendance Management System using
+								dedicated to building clean, functional
+								applications. I recently developed a
+								university-level Attendance Management System,
+								focusing on reliability and performance by
+								utilizing
 								<span className={highlightClass}>Next.js</span>,
-								<span className={highlightClass}>React</span>,
+								<span className={highlightClass}>Prisma</span>,
 								and
 								<span className={highlightClass}>
-									Tailwind CSS
+									Neon PostgreSQL
 								</span>
 								.
 							</p>
 
 							<p className="text-muted-foreground text-base md:text-lg leading-relaxed italic">
-								On the back-end, I build secure systems with
+								I enjoy the process of writing maintainable code
+								and styling with
 								<span className={highlightClass}>
-									Node.js
+									Tailwind CSS
+								</span>{" "}
+								to create polished user interfaces. By combining
+								modern databases like
+								<span className={highlightClass}>
+									MongoDB
 								</span>{" "}
 								and
-								<span className={highlightClass}>Express</span>,
-								leveraging
 								<span className={highlightClass}>
 									PostgreSQL
-								</span>
-								,<span className={highlightClass}>MongoDB</span>
-								, and
-								<span className={highlightClass}>Prisma</span>.
-								I thrive on bridging complex engineering with
-								clean, maintainable code for impactful digital
-								experiences.
+								</span>{" "}
+								with secure server logic in{" "}
+								<span className={highlightClass}>Node.js</span>,
+								I build tools that simplify complex tasks and
+								provide a smooth digital experience.
 							</p>
 						</div>
 					</div>

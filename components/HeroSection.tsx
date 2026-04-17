@@ -4,7 +4,10 @@ import TerminalBox from "./TerminalBox";
 
 const HeroSection = () => {
 	return (
-		<section className="flex flex-wrap md:flex-nowrap justify-between  md:py-16 md:mt-20  gap-8 ">
+		<section
+			id="home"
+			className="flex flex-wrap md:flex-nowrap justify-between  md:py-16 md:mt-20 scroll-mt-125  gap-8 "
+		>
 			<SparkleParticles
 				className="absolute inset-0 z-0"
 				maxParticleSize={2.5}

@@ -7,14 +7,13 @@ import TechStack from "@/components/TechStack";
 
 export default function Home() {
 	return (
-		<div className="md:px-8 space-y-5 ">
-			<h1 className="text-sky-600">Portfoilo</h1>
+		<div className="md:px-8 space-y-5 mt-22">
 			<HeroSection />
 			<FeatureCard />
 			<ExperienceSection />
-			<AboutMe />
-			<TechStack />
 			<ShowCaseSectionn />
+			<TechStack />
+			<AboutMe />
 		</div>
 	);
 }

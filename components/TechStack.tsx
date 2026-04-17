@@ -51,9 +51,9 @@ const TechStack = () => {
 		},
 	];
 	return (
-		<section className="space-y-10 mt-20">
+		<section id="skills" className="space-y-10  scroll-mt-20">
 			{/* title */}
-			<div className="text-center space-y-5">
+			<div className="text-center mt-20 space-y-5">
 				<h5 className="w-fit mx-auto my-6 px-6 py-3 rounded-[3rem] flex items-center gap-2 bg-slate-50 dark:bg-white/3 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-xl border-none text-sm font-medium">
 					<Terminal />
 					My Tech Stack

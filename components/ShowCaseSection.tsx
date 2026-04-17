@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Card, CardContent } from "./lightswind/card";
-import { Code2Icon } from "lucide-react";
+import { Code2Icon, FileIcon, GitBranch } from "lucide-react";
 import { Projects } from "@/constants/index.constant";
 
 const ShowCaseSection = () => {
 	return (
-		<section className="mt-20 min-h-screen">
+		<section id="projects" className="mt-20  scroll-mt-25">
 			<h2 className="text-center font-extrabold text-3xl mb-10">
 				Projects
 			</h2>
@@ -39,6 +39,18 @@ const ShowCaseSection = () => {
 										{tech}
 									</span>
 								))}
+							</div>
+							<div className="flex justify-between items-center gap-3">
+								<a className="flex gap-2 items-center w-full rounded-md underline cursor-pointer px-4 py-1">
+									<FileIcon size={16} />
+									<span className="text-xs">Demo</span>
+								</a>
+								<a className="flex  justify-around items-center w-full rounded-md bg-gray-300 text-black px-2 py-1">
+									<GitBranch size={16} />
+									<span className="text-xs">
+										View on GitHub
+									</span>
+								</a>
 							</div>
 						</CardContent>
 					</Card>

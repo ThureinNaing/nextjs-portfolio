@@ -27,17 +27,19 @@ const events = [
 
 export function ExperienceSection() {
 	return (
-		<ScrollTimeline
-			events={events}
-			title="My Journey"
-			subtitle=""
-			progressIndicator={true}
-			cardAlignment="alternating"
-			revealAnimation="fade"
-			dateFormat="badge"
-			perspective={true}
-			darkMode={true}
-			smoothScroll={true}
-		/>
+		<section id="experience" className="scroll-mt-12.5">
+			<ScrollTimeline
+				events={events}
+				title="My Journey"
+				subtitle=""
+				progressIndicator={true}
+				cardAlignment="alternating"
+				revealAnimation="fade"
+				dateFormat="badge"
+				perspective={true}
+				darkMode={true}
+				smoothScroll={true}
+			/>
+		</section>
 	);
 }
