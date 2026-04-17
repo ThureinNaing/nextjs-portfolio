@@ -69,42 +69,33 @@ export default function AboutMe() {
 								</span>
 								. I am a{" "}
 								<span className={highlightClass}>
-									Computing Engineering and Information
+									Computer Engineering and Information
 									Technology student
-								</span>
-								dedicated to building clean, functional
-								applications. I recently developed a
-								university-level Attendance Management System,
-								focusing on reliability and performance by
-								utilizing
-								<span className={highlightClass}>Next.js</span>,
-								<span className={highlightClass}>Prisma</span>,
-								and
-								<span className={highlightClass}>
-									Neon PostgreSQL
-								</span>
-								.
+								</span>{" "}
+								passionate about full-stack web development.
 							</p>
 
 							<p className="text-muted-foreground text-base md:text-lg leading-relaxed italic">
-								I enjoy the process of writing maintainable code
-								and styling with
+								I work with{" "}
+								<span className={highlightClass}>React</span>,{" "}
+								<span className={highlightClass}>Next.js</span>,
+								and{" "}
 								<span className={highlightClass}>
 									Tailwind CSS
 								</span>{" "}
-								to create polished user interfaces. By combining
-								modern databases like
-								<span className={highlightClass}>
-									MongoDB
-								</span>{" "}
-								and
+								on the frontend, and{" "}
+								<span className={highlightClass}>Node.js</span>{" "}
+								and{" "}
+								<span className={highlightClass}>Express</span>{" "}
+								on the backend, using{" "}
 								<span className={highlightClass}>
 									PostgreSQL
-								</span>{" "}
-								with secure server logic in{" "}
-								<span className={highlightClass}>Node.js</span>,
-								I build tools that simplify complex tasks and
-								provide a smooth digital experience.
+								</span>
+								,{" "}
+								<span className={highlightClass}>MongoDB</span>,
+								and{" "}
+								<span className={highlightClass}>Prisma</span>{" "}
+								to build modern, scalable applications.
 							</p>
 						</div>
 					</div>
