@@ -3,7 +3,7 @@ import { GlowingCards, GlowingCard } from "./lightswind/glowing-cards";
 
 const FeatureCard = () => {
 	return (
-		<div className="w-full   py-12 relative z-20 ">
+		<div className="w-full   py-12 relative z-20 scroll-mt-50">
 			<GlowingCards className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
 				{abilities.map(
 					({ title, desc, icon: Icon, iconColor, bgColor }) => {

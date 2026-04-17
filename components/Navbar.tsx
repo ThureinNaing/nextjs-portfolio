@@ -42,7 +42,7 @@ const Navbar = () => {
 	};
 	return (
 		<header
-			className={`flex justify-between items-center md:px-16  text-white fixed w-full left-1/2  -translate-x-1/2 z-100 transition-all duration-300 ease-in-out ${scrolled ? "top-0 bg-black" : "md:top-1 top-0 bg-transparent "}`}
+			className={`flex justify-between items-center md:px-16 py-6  text-white fixed w-full left-1/2  -translate-x-1/2 z-100 transition-all duration-300 ease-in-out ${scrolled ? "top-0 bg-black" : "md:top-1 top-0 bg-transparent "}`}
 		>
 			<h1 className="text-xl font-semibold text-mauve-400 italic">
 				Thurein Naing
@@ -62,7 +62,7 @@ const Navbar = () => {
 			<Link
 				href="#about"
 				onClick={(e) => scrollToSection(e, "about")}
-				className="bg-white text-black px-3 py-1 rounded italic cursor-pointer"
+				className="bg-white text-black text-sm md:text-lg px-3 py-1 rounded italic cursor-pointer"
 			>
 				Contact me
 			</Link>
