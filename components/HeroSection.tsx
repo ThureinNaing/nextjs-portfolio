@@ -1,5 +1,6 @@
 import ScrollReveal from "./lightswind/scroll-reveal";
 import { SparkleParticles } from "./lightswind/sparkle-particles";
+// import ResumeButton from "./ResumeButton";
 import TerminalBox from "./TerminalBox";
 
 const HeroSection = () => {
@@ -39,13 +40,16 @@ const HeroSection = () => {
 					Hi, I&apos;m Thurein Naing, a full-stack devloper with a
 					passion for crafting innovative web solutions.
 				</p>
-
-				<a
-					href="#projects"
-					className="inline-block bg-gray-400 hover:bg-gray-500 text-black px-8 py-3 rounded-lg transition-colors duration-300 pointer-events-auto"
-				>
-					View Projects
-				</a>
+				<div className="flex flex-wrap gap-4 mt-8 items-center">
+					<a
+						href="#projects"
+						className="inline-block bg-gray-400 hover:bg-gray-500 text-black px-4 md:px-8 py-1 md:py-3 rounded-lg transition-colors duration-300 pointer-events-auto"
+					>
+						View Projects
+					</a>
+					{/* Resume Button */}
+					{/* <ResumeButton /> */}
+				</div>
 			</div>
 			<TerminalBox />
 		</section>
