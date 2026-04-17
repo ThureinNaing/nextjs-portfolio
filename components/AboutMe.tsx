@@ -1,11 +1,48 @@
 "use client";
 
+import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function AboutMe() {
 	const highlightClass =
 		"text-indigo-400 font-bold mx-1 hover:text-indigo-300 transition-colors cursor-default";
+	const emailAddress = "thuureinnnaingg412@gmail.com";
+	const { toast } = useToast();
+
+	const handleCopyEmail = () => {
+		navigator.clipboard.writeText(emailAddress);
+
+		toast.success({
+			title: "Copied Successfully!",
+			description: emailAddress,
+			duration: 3000,
+		});
+	};
+
+	const socials = [
+		{
+			name: "Email",
+			icon: <Mail size={20} />,
+			action: handleCopyEmail,
+			color: "hover:text-red-400",
+		},
+		{
+			name: "GitHub",
+			// Devicon GitHub class
+			icon: <i className="devicon-github-original text-[20px]"></i>,
+			link: "https://github.com/ThureinNaing",
+			color: "hover:text-gray-400",
+		},
+		{
+			name: "LinkedIn",
+			// Devicon LinkedIn class
+			icon: <i className="devicon-linkedin-plain text-[20px]"></i>,
+			link: "https://linkedin.com/in/thurein-naing-0b5188318",
+			color: "hover:text-blue-400",
+		},
+	];
 
 	return (
 		<section id="about" className="bg-background mt-20 scroll-mt-37.5">
@@ -25,15 +62,58 @@ export default function AboutMe() {
 								priority
 								className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
 							/>
+
 							<div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
 
-							<div className="absolute bottom-8 left-8">
-								<p className="text-white/60 text-[10px] font-black uppercase tracking-widest mb-1">
-									Full Stack Developer
-								</p>
-								<h3 className="text-white text-2xl font-black tracking-tight">
-									Thurein Naing
-								</h3>
+							<div className="absolute bottom-8 left-8 right-8  flex justify-between items-end gap-3">
+								<div>
+									{" "}
+									<p className="text-white/60 text-[10px] font-black uppercase tracking-widest mb-1">
+										Full Stack Developer
+									</p>
+									<h3 className="text-white text-2xl font-black tracking-tight">
+										Thurein Naing
+									</h3>
+								</div>
+								<div className=" flex gap-3 z-20">
+									{socials.map((social, idx) => {
+										const Component = social.action
+											? "button"
+											: "a";
+
+										return (
+											<motion.div
+												key={idx}
+												whileHover={{
+													scale: 1.1,
+													y: -5,
+												}}
+												whileTap={{ scale: 0.9 }}
+											>
+												<Component
+													{...(social.action
+														? {
+																onClick:
+																	social.action,
+															}
+														: {
+																href: social.link,
+																target: "_blank",
+																rel: "noopener noreferrer",
+															})}
+													className={`p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-primary hover:border-primary transition-colors flex items-center justify-center ${social.color}`}
+													title={
+														social.name === "Email"
+															? "Copy Email"
+															: `Go to ${social.name}`
+													}
+												>
+													{social.icon}
+												</Component>
+											</motion.div>
+										);
+									})}
+								</div>
 							</div>
 						</motion.div>
 

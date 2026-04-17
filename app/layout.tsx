@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/Toaster";
 
 export const metadata: Metadata = {
 	title: "Thurein Naing - Portfolio",
@@ -22,6 +23,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className="min-h-full flex flex-col md:mx-4 p-4 ">
+				<Toaster />
 				<Navbar />
 				{children}
 			</body>

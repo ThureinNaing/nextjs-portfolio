@@ -23,6 +23,23 @@ const Navbar = () => {
 		// cleanup the event listener when the component is unmounted
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
+
+	const scrollToSection = (e: React.MouseEvent, id: string) => {
+		e.preventDefault();
+		const element = document.getElementById(id);
+		if (element) {
+			const offset = 80; // Navbar height အတွက် နေရာချန်တာပါ
+			const bodyRect = document.body.getBoundingClientRect().top;
+			const elementRect = element.getBoundingClientRect().top;
+			const elementPosition = elementRect - bodyRect;
+			const offsetPosition = elementPosition - offset;
+
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: "smooth",
+			});
+		}
+	};
 	return (
 		<header
 			className={`flex justify-between items-center md:px-16  text-white fixed w-full left-1/2  -translate-x-1/2 z-100 transition-all duration-300 ease-in-out ${scrolled ? "top-0 bg-black" : "md:top-1 top-0 bg-transparent "}`}
@@ -43,7 +60,8 @@ const Navbar = () => {
 				/>
 			</nav>
 			<Link
-				href="#contact"
+				href="#about"
+				onClick={(e) => scrollToSection(e, "about")}
 				className="bg-white text-black px-3 py-1 rounded italic cursor-pointer"
 			>
 				Contact me
