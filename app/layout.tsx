@@ -8,6 +8,10 @@ const siteUrl =
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
+	verification: {
+		google: process.env.google_site_verification!,
+	},
+
 	title: {
 		default: "Thurein Naing - Full Stack Developer Portfolio",
 		template: "%s | Thurein Naing",
