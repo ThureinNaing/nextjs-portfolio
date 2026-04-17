@@ -44,7 +44,7 @@ const Navbar = () => {
 		<header
 			className={`flex justify-between items-center md:px-16 py-6  text-white fixed w-full left-1/2  -translate-x-1/2 z-100 transition-all duration-300 ease-in-out ${scrolled ? "top-0 bg-black" : "md:top-1 top-0 bg-transparent "}`}
 		>
-			<h1 className="text-xl font-semibold text-mauve-400 italic">
+			<h1 className="text-sm md:text-xl font-semibold  text-mauve-400 italic">
 				Thurein Naing
 			</h1>
 			<nav className="hidden md:block">

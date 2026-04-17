@@ -6,7 +6,7 @@ const HeroSection = () => {
 	return (
 		<section
 			id="home"
-			className="flex flex-wrap md:flex-nowrap justify-between min-h-screen  md:py-16 md:mt-20 scroll-mt-125  gap-8 "
+			className="flex flex-wrap md:flex-nowrap justify-between  md:py-16 md:mt-20 scroll-mt-125  gap-8 "
 		>
 			<SparkleParticles
 				className="absolute inset-0 z-0"
