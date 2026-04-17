@@ -9,7 +9,7 @@ const siteUrl =
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	verification: {
-		google: process.env.google_site_verification!,
+		google: "BVRrWSjZnI8RLdtMcTyb-VMNq_8xlLSQFqfHpix32dc",
 	},
 
 	title: {
