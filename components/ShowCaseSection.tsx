@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent } from "./lightswind/card";
-import { Code2Icon, FileIcon, GitBranch } from "lucide-react";
+import { Code2Icon, ExternalLink } from "lucide-react";
 import { Projects } from "@/constants/index.constant";
 
 const ShowCaseSection = () => {
@@ -41,12 +41,12 @@ const ShowCaseSection = () => {
 								))}
 							</div>
 							<div className="flex justify-between items-center gap-3">
-								<a className="flex gap-2 items-center w-full rounded-md underline cursor-pointer px-4 py-1">
-									<FileIcon size={16} />
+								<a className="flex gap-2   items-center w-full rounded-md underline cursor-not-allowed px-4 py-1">
+									<ExternalLink size={16} />
 									<span className="text-xs">Demo</span>
 								</a>
-								<a className="flex  justify-around items-center w-full rounded-md bg-gray-300 text-black px-2 py-1">
-									<GitBranch size={16} />
+								<a className="flex  justify-around items-center w-full rounded-md cursor-pointer bg-gray-300 text-black px-2 py-1">
+									<i className="devicon-github-original text-[20px]"></i>
 									<span className="text-xs">
 										View on GitHub
 									</span>

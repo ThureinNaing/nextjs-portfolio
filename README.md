@@ -48,9 +48,23 @@ Create a `.env` file in the project root:
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
 
-This value is used for canonical metadata, Open Graph URLs, sitemap, and robots output.
+### 3) Set up EmailJS for Contact Form (Optional)
 
-### 3) Run the development server
+The contact form uses EmailJS to send emails. To enable it:
+
+1. Sign up at [EmailJS](https://www.emailjs.com/)
+2. Create a new email service (e.g., Gmail)
+3. Create an email template with variables: `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`, `{{to_email}}`
+4. Get your Service ID, Template ID, and Public Key
+5. Update `.env.local` with your values:
+
+```bash
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+### 4) Run the development server
 
 ```bash
 pnpm dev

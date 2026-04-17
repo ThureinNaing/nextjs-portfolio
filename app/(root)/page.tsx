@@ -4,6 +4,7 @@ import FeatureCard from "@/components/FeatureCard";
 import HeroSection from "@/components/HeroSection";
 import ShowCaseSection from "@/components/ShowCaseSection";
 import TechStack from "@/components/TechStack";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<ShowCaseSection />
 			<TechStack />
 			<AboutMe />
+			<ContactForm />
 		</div>
 	);
 }

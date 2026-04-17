@@ -27,21 +27,27 @@ const abilities = [
 const Projects = [
 	{
 		title: "Attendance Management System",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		desc: "A collaborative multi-role tracking system developed with IV-BE-IT members to manage institutional records for Students.",
 		img: "/adms.png",
 		technologies: ["NextJS", "PostgreSql", "Shadcn UI", "Prisma"],
+		github: "https://github.com/beit-g4-attendance-mgmt-2025-2026/attendance-management-system",
+		link: "https://adms-demo.vercel.app",
 	},
 	{
-		title: "SaaS Project",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		title: "SaaS Project Framework",
+		desc: "A scalable multi-tenant architecture with secure authentication, built as a foundation for future modules.",
 		img: "/saas.png",
 		technologies: ["NextJS", "Supabase", "Tailwind CSS"],
+		github: "https://github.com/ThureinNaing/saas-app",
+		link: "https://saas-demo.vercel.app",
 	},
 	{
-		title: "Library Management System",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam, voluptates vitae labore.",
+		title: "Collaborative Library System",
+		desc: "A community platform with global CRUD access and owner-exclusive update rights for secure data management.",
 		img: "/library.png",
 		technologies: ["React", "Firebase", "Tailwind CSS"],
+		github: "https://github.com/ThureinNaing/BookStoreViteReact-Firebase",
+		link: "https://library-demo.vercel.app",
 	},
 ];
 
