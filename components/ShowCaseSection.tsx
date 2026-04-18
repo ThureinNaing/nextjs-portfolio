@@ -12,7 +12,7 @@ const containerVariants = {
 	visible: {
 		opacity: 1,
 		transition: {
-			staggerChildren: 0.15, // ကဒ်တစ်ခုချင်းစီ ပေါ်လာမယ့် အချိန်ခြားနားချက်
+			staggerChildren: 0.15,
 		},
 	},
 };
@@ -24,7 +24,7 @@ const cardVariants: Variants = {
 		y: 0,
 		transition: {
 			duration: 0.6,
-			ease: [0.22, 1, 0.36, 1], // အခုဆိုရင် Error မတက်တော့ပါဘူး
+			ease: [0.22, 1, 0.36, 1],
 		},
 	},
 };
@@ -54,7 +54,7 @@ const ShowCaseSection = () => {
 					<motion.div
 						key={index}
 						variants={cardVariants}
-						whileHover={{ y: -8 }} // Hover လုပ်ရင် အပေါ်ကို ကြွတက်မယ်
+						whileHover={{ y: -8 }}
 						className="h-full"
 					>
 						<Card className="h-full bg-[#0d1117] border-slate-800 hover:border-blue-500/40 transition-all duration-500 group overflow-hidden">
@@ -77,7 +77,7 @@ const ShowCaseSection = () => {
 									<h3 className="font-extrabold text-xl text-white tracking-tight group-hover:text-blue-400 transition-colors">
 										{project.title}
 									</h3>
-									<p className="text-slate-400 text-sm leading-relaxed line-clamp-2">
+									<p className="text-slate-400 text-sm leading-relaxed">
 										{project.desc}
 									</p>
 								</div>

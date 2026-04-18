@@ -52,6 +52,7 @@ const ContactForm = () => {
 				message: data.message,
 				to_email: "thuureinnnaingg412@gmail.com",
 			};
+			console.log("Sending email with params:", templateParams);
 
 			await emailjs.send(
 				serviceId,
