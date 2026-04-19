@@ -3,7 +3,7 @@ import { GlowingCards, GlowingCard } from "./lightswind/glowing-cards";
 
 const FeatureCard = () => {
 	return (
-		<section className="md:mt-20">
+		<section className="mt-30">
 			<div className="text-center mb-16">
 				<h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter italic">
 					Why Work With Me
