@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 /* @plugin 'lightswind/plugin'; */
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
+	--background: #000000;
+	--foreground: #e2e8f0;
 }
 
 @theme inline {
@@ -12,11 +13,9 @@
 	--font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+html {
+	background: var(--background);
+	color-scheme: dark;
 }
 
 body {

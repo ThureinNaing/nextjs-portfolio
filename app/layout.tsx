@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/Toaster";
@@ -70,20 +70,25 @@ export const metadata: Metadata = {
 	},
 };
 
+export const viewport: Viewport = {
+	themeColor: "#000000",
+	colorScheme: "dark",
+};
+
 export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className="dark h-full antialiased">
+		<html lang="en" className="dark h-full bg-background antialiased">
 			<head>
 				<link
 					rel="stylesheet"
 					href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
 				/>
 			</head>
-			<body className="min-h-full flex flex-col md:mx-4 p-4 ">
+			<body className="min-h-full bg-background text-foreground flex flex-col md:mx-4 p-4">
 				<Toaster />
 				<Navbar />
 				{children}
