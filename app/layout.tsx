@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/Toaster";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl =
 	process.env.NEXT_PUBLIC_SITE_URL ?? "https://thurein-naing.vercel.app";
@@ -93,6 +94,7 @@ export default function RootLayout({
 				<Navbar />
 				{children}
 				<Footer />
+				<Analytics />
 			</body>
 		</html>
 	);
