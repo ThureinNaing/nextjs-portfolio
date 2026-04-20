@@ -54,7 +54,7 @@ const TechStack = () => {
 		<section id="skills" className="space-y-10  scroll-mt-20">
 			{/* title */}
 			<div className="text-center mt-20 space-y-5">
-				<h5 className="w-fit mx-auto my-6 px-6 py-3 rounded-[3rem] flex items-center gap-2 bg-slate-50 dark:bg-white/3 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-xl border-none text-sm font-medium">
+				<h5 className="mx-auto my-6 flex w-fit items-center gap-2 rounded-[3rem] border border-white/10 bg-white/3 px-6 py-3 text-sm font-medium text-slate-100 shadow-xl backdrop-blur-xl">
 					<Terminal />
 					My Tech Stack
 				</h5>
@@ -74,11 +74,11 @@ const TechStack = () => {
 						whileInView={{ opacity: 1, x: 0 }}
 						className="group cursor-pointer md:h-70"
 					>
-						<Card className="w-full h-full rounded-[3rem] bg-slate-50 dark:bg-white/3 border border-slate-200 dark:border-white/10 backdrop-blur-xl p-8 flex flex-col items-center text-center justify-center overflow-hidden relative shadow-lg transition-all group-hover:border-emerald-500/30 border-none">
-							<div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 dark:opacity-100" />
+						<Card className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[3rem] border border-white/10 bg-white/3 p-8 text-center shadow-lg backdrop-blur-xl transition-all group-hover:border-emerald-500/30">
+							<div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent opacity-100" />
 							{tech.icon}
 
-							<h3 className=" text-slate-900 dark:text-white uppercase text-xs tracking-widest">
+							<h3 className="text-xs uppercase tracking-widest text-white">
 								{tech.name}
 							</h3>
 						</Card>
