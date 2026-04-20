@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/Toaster";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const siteUrl =
 	process.env.NEXT_PUBLIC_SITE_URL ?? "https://thurein-naing.vercel.app";
@@ -95,6 +96,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
