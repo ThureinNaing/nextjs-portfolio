@@ -1,8 +1,8 @@
 @import "tailwindcss";
 /* @plugin 'lightswind/plugin'; */
 :root {
-	--background: #020617;
-	--foreground: #e2e8f0;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
 @theme inline {
@@ -12,8 +12,11 @@
 	--font-mono: var(--font-geist-mono);
 }
 
-html {
-	color-scheme: dark;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
@@ -23,19 +26,17 @@ body {
 }
 
 /* Custom Styles for ScrollTimeline */
-.custom-experience-timeline [class*="card"] {
-	background-color: #0d1117 !important; /* အစ်ကိုလိုချင်တဲ့ Background အရောင် */
-	border-color: #1f2937 !important; /* Border အရောင် */
-	color: #ffffff !important; /* စာသားအရောင် */
-}
+/* .custom-experience-timeline [class*="card"] {
+	background-color: #0d1117 !important;
+	border-color: #1f2937 !important;
+	color: #ffffff !important;
+} */
 
-/* Timeline line နဲ့ Dot အရောင်ကို ပြောင်းချင်ရင် */
-.custom-experience-timeline [class*="line"],
+/* .custom-experience-timeline [class*="line"],
 .custom-experience-timeline [class*="dot"] {
-	background-color: #3b82f6 !important; /* Blue accent */
-}
+	background-color: #3b82f6 !important;
+} */
 
-/* Description စာသားလေးတွေကို မီးခိုးရောင် ထားချင်ရင် */
-.custom-experience-timeline [class*="description"] {
+/* .custom-experience-timeline [class*="description"] {
 	color: #94a3b8 !important;
-}
+} */
