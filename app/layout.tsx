@@ -21,6 +21,11 @@ export const metadata: Metadata = {
 	},
 	description:
 		"Portfolio of Thurein Naing, a full stack developer building scalable web applications with Next.js, React, Node.js, and modern backend systems.",
+	icons: {
+		icon: "/TRN.png",
+		shortcut: "/TRN.png",
+		apple: "/TRN.png", // Apple devices use this icon for the home screen
+	},
 	keywords: [
 		"Thurein Naing",
 		"Full Stack Developer",
