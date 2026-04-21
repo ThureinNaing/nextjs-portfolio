@@ -10,7 +10,7 @@ interface ResumeButtonProps {
 const ResumeButton = ({ className = "" }: ResumeButtonProps) => {
 	return (
 		<motion.a
-			href="/Thurein_Naing_Resume.pdf"
+			href="/resume.pdf"
 			download="Thurein_Naing_Resume.pdf"
 			whileHover={{ scale: 1.05 }}
 			whileTap={{ scale: 0.95 }}

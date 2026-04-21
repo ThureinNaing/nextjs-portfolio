@@ -1,6 +1,6 @@
 import ScrollReveal from "./lightswind/scroll-reveal";
 import { SparkleParticles } from "./lightswind/sparkle-particles";
-// import ResumeButton from "./ResumeButton";
+import ResumeButton from "./ResumeButton";
 import TerminalBox from "./TerminalBox";
 
 const HeroSection = () => {
@@ -48,7 +48,7 @@ const HeroSection = () => {
 						View Projects
 					</a>
 					{/* Resume Button */}
-					{/* <ResumeButton /> */}
+					<ResumeButton />
 				</div>
 			</div>
 			<TerminalBox />
