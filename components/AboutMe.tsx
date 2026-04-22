@@ -39,7 +39,7 @@ export default function AboutMe() {
 			name: "LinkedIn",
 			// Devicon LinkedIn class
 			icon: <i className="devicon-linkedin-plain text-[20px]"></i>,
-			link: "https://linkedin.com/in/thurein-naing-0b5188318",
+			link: "https://linkedin.com/in/thurein-naing",
 			color: "hover:text-blue-400",
 		},
 	];
