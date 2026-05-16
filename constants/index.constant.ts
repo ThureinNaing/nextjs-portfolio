@@ -42,13 +42,28 @@ const Projects = [
 		link: "https://saas-demo.vercel.app",
 	},
 	{
-		title: "Collaborative Library System",
-		desc: "A community platform with global CRUD access and owner-exclusive update rights for secure data management.",
-		img: "/library.png",
-		technologies: ["React", "Firebase", "Tailwind CSS"],
-		github: "https://github.com/ThureinNaing/BookStoreViteReact-Firebase",
-		link: "https://library-demo.vercel.app",
+		title: "Modern DevOverflow Forum",
+		desc: "A full-stack community platform featuring advanced Mongoose server actions, dynamic content streaming, and AI-powered insights integrated via Groq API.",
+		img: "/forum-project.png",
+		technologies: [
+			"Next.js",
+			"MongoDB",
+			"Groq API",
+			"Qwen 3",
+			"Tailwind CSS",
+			"Shadcn UI",
+		],
+		github: "https://github.com/ThureinNaing/forum-project-nextjs",
+		link: "https://forum-project-nextjs.vercel.app",
 	},
+	// {
+	// 	title: "Collaborative Library System",
+	// 	desc: "A community platform with global CRUD access and owner-exclusive update rights for secure data management.",
+	// 	img: "/library.png",
+	// 	technologies: ["NextJS", "MongoDB", "Tailwind CSS", "Shadcn UI", "Grogk"],
+	// 	github: "https://github.com/ThureinNaing/BookStoreViteReact-Firebase",
+	// 	link: "https://library-demo.vercel.app",
+	// },
 ];
 
 export { abilities, Projects };
